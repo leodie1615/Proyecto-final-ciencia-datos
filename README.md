@@ -158,27 +158,32 @@ Para el presente experimento la hipótesis nula plantea que el efecto de una her
 <p align="justify">
 La hipótesis alternativa sugiere que una herramienta de control sobre los proyectos si tiene un impacto sobre el uso recursos, es decir que el monitoreo constante afecta en cierta medida en los proyectos. Es incluso posible para el caso particular generar más hipótesis de mayor complejidad a ser evaluadas en el experimento, con ideas orientadas a probar a la dirección del impacto “La herramienta de monitoreo disminuye el uso de recursos” o con hipótesis orientadas al tipo de recurso impactado “La herramienta de monitoreo aumenta el uso de horas de trabajo en los proyectos”.
 
+<p align="justify">
+Para las técnicas estadística se propone por ejemplo un T-Test para comparar el desempeño de un proyecto donde no se haya realizado monitoreo con las nuevas herramientas comparado contra un proyecto si se haya realizado monitoreo constante.  El enfoque principal del proyecto de datos está en la disponibilización y visualización de los datos que actualmente no están congregados. Por lo tanto, se sugieren las siguientes técnicas de visualización para el dashboard:  
 
-TECNICAS
+<p align="justify">
+<strong>Para el KPI de Porcentaje de avance por proyecto:</strong> se sugiere una grafico de barras horizontales donde cada barra sea un proyecto, la longitud es el porcentaje de avance y se utiliza una codificación de colores (rojo, amarillo, verde)
+
+<p align="justify">
+<strong>Para el KPI de Cumplimiento de horas por tarea o proyecto:</strong> se sugiere un gráfico de dispersión donde el eje X sean las horas planificadas y el eje Y sean las horas reales. Se traza una diagonal y=x que indica un cumplimiento del 100% entre lo estimado y lo real. De esta manera los puntos que estén por encima de la diagonal están sobrestimando las horas de trabajo y aquellos que estén por debajo están subestimando. Se pueden adicionar también códigos de color para empleados o equipos.  
 
 ## 5. Recolección de Datos 
 Para el presente proyecto se utilizan 2 fuentes de datos principales. 
-La información de la empresa: Correos. Exceles de empleados y proyecto. XXXXXXXX 
 
-Dataset de Grizzly: Por sugerencia del personal docente del presente proyecto académico y frente a la relativa baja de cantidad de datos presentes en la empresa se incluye datos de un dataset abierto que comparte características similares con la estructura de datos de la empresa. El objetivo es que el presente Dataset permita realizar análisis más complejos y experimentar más escenarios en el ejercicio académico, como por ejemplo entrenar un modelo o visualizar volúmenes de datos en un dashboard 
+<p align="justify">
+<strong> Información de la empresa:</strong>  Actualmente el principal método para las personas de la empresa para registrar las horas de trabajo es mediante correos que se envían diariamente al final de la jornada laboral. Adicionalmente se recopila información proveniente de archivos de Excel que contienen los datos de los proyectos, las tareas y los empleados. La información de estas fuentes se recopila mediante notebooks o proceso manuales no incluidos en la presente entrega.  
 
+<p align="justify">
+<strong> Dataset de Grizzly:</strong> Por sugerencia del personal docente del presente proyecto académico y frente a la relativa baja de cantidad de datos presentes en la empresa se incluye datos de un dataset abierto que comparte características similares con la estructura de datos de la empresa. El objetivo es que el presente Dataset permita realizar análisis más complejos y experimentar más escenarios en el ejercicio académico, como por ejemplo entrenar un modelo o visualizar volúmenes de datos en un dashboard.  Es importante aclarar que la información del Dataset no será incluida en el entregable a la empresa
 
-La información del Dataset no será incluida en el entregable a la empresa 
-
-
+<p align="justify">
 El conjunto de datos utilizado contiene información detallada sobre tareas, proyectos y equipos registrados en la plataforma Gryzzly, orientada al seguimiento del tiempo y desempeño de los proyectos. Entre sus campos principales se encuentran: los identificadores de tarea (tarea_id) y proyecto (proyecto_id), las fechas de creación (creacion_tarea_grizzly, creacion_proyecto_grizzly), la duración planeada y real de cada tarea y proyecto (duracion_total_planeada_tarea, duracion_real_total_tarea, duracion_total_planeada_projecto, duracion_real_total_projecto), así como la fuente de registro (fuente) y el estado del equipo o empresa (estado, oferta). Adicionalmente, se incluye información temporal sobre los equipos (creacion_team_grizzly, eliminacion_team_grizzly, duracion_meses_team), asi como tambien la fecha donde el usuario registro la tarea en grizzly (fecha_registro_grizzly_empleado), como tambien la fecha cuando realizo dicha tarea el empleado (fecha_tarea_empleado). 
 
-
-https://www.nature.com/articles/s41597-025-04903-2#:~:text=We%20introduce%20the%20Gryzzly%20time,It%20provides%20a 
+Para más información sobre el Dataset de Grizzly, se puede acceder al siguiente enlace:   [Seven years of time-tracking data capturing collaboration and failure dynamics: the Gryzzly dataset](https://www.nature.com/articles/s41597-025-04903-2#)
 
 ## 6. Entendimiento de los Datos
 <p align="justify">
-aaaaaa
+El procedimiento del entendimiento de los datos junto a todo el procesamiento técnico de los mismos se realiza en el notebook de python llamado “proyecto_final.ipynb” ubicado en este mismo repositorio.  
 
 ## 7. Conclusiones Iniciales
 <p align="justify">
