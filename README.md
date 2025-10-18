@@ -6,13 +6,13 @@
 
 
 # Instalaciones
-Para ejecutar el notebook proyecto_final.ipynb se debe ejecutar en consola cmd el comando ".\setup.bat", con el fin de instalar ambiente virtual y librerias necesarias para la ejecucion del notebook. Finalmente, se debe seleccionar el kernel **venv** para ejecutar las celdas de código.
+Para ejecutar el notebook proyecto_final.ipynb se debe ejecutar en consola cmd el comando ".\setup.bat", con el fin de instalar ambiente virtual y librerías necesarias para la ejecución del notebook. Finalmente, se debe seleccionar el kernel **venv** para ejecutar las celdas de código.
 
 
 # Proyecto Ciencia de Datos
 El propósito de este proyecto es aplicar el conjunto de técnicas y herramientas vistas durante el semestre para desarrollar un proyecto de ciencia de datos en una organización.
 
-Con la intencion de realizar una entrega de acuerdo a lo propuesto en el enunciado del proyecto academico, parte del contenido se desarrollara en el presente README. El PDF entregable solo es un resumen ejecutivo con la informacion mas relevante. 
+Con la intención de realizar una entrega de acuerdo a lo propuesto en el enunciado del proyecto académico, parte del contenido se desarrollará en el presente README. El PDF entregable solo es un resumen ejecutivo con la información más relevante. 
 
 ---
 
@@ -72,7 +72,7 @@ Para dar respuesta a la problemática identificada, se propone el diseño e impl
 <strong>Integración de datos (ETL)</strong>:  El primer paso consiste en centralizar toda la información proveniente de los formularios de registro de actividades de los empleados en un repositorio unificado. Esta integración permitirá eliminar la dependencia de canales informales como el correo electrónico y garantizar la disponibilidad, consistencia y trazabilidad de los datos. De esta manera, la empresa contará con una fuente única de información confiable que facilite los análisis transversales por proyecto, área o colaborador
  
  <p align="justify">
-<strong>API de registro de actividades</strong>: El segundo componente corresponde al desarrollo de una API transaccional, acompañada de una interfaz gráfica amigable, que reemplace los formatos manuales actuales. A través de esta herramienta, los empleados podrán registrar sus actividades en tiempo real, asignarlas a proyectos específicos y enviar automaticamente la información al repositorio de datos. Este flujo digitalizado reducirá errores humanos, estandarizará los procesos de captura y habilitará un ecosistema de datos más accesible, escalable y gobernable.
+<strong>API de registro de actividades</strong>: El segundo componente corresponde al desarrollo de una API transaccional, acompañada de una interfaz gráfica amigable, que reemplace los formatos manuales actuales. A través de esta herramienta, los empleados podrán registrar sus actividades en tiempo real, asignarlas a proyectos específicos y enviar automáticamente la información al repositorio de datos. Este flujo digitalizado reducirá errores humanos, estandarizará los procesos de captura y habilitará un ecosistema de datos más accesible, escalable y gobernable.
 
  <p align="justify">
 <strong>Dashboard de gestión y desempeño</strong>: Finalmente, se propone la creación de un tablero interactivo de control y seguimiento, orientado a la analítica de proyectos y productividad. Este dashboard permitirá visualizar los costos planificados versus los reales, el avance de tareas por empleado o equipo, y los principales indicadores de rendimiento, eficiencia y cumplimiento de objetivos. El tablero consolidará métricas a distintos niveles de agregación (diario, semanal, quincenal y mensual), facilitando el monitoreo de tendencias y la toma de decisiones basadas en evidencias.
@@ -171,20 +171,26 @@ Para las técnicas estadística se propone por ejemplo un T-Test para comparar e
 Para el presente proyecto se utilizan 2 fuentes de datos principales. 
 
 <p align="justify">
-<strong> Información de la empresa:</strong>  Actualmente el principal método para las personas de la empresa para registrar las horas de trabajo es mediante correos que se envían diariamente al final de la jornada laboral. Adicionalmente se recopila información proveniente de archivos de Excel que contienen los datos de los proyectos, las tareas y los empleados. La información de estas fuentes se recopila mediante notebooks o proceso manuales no incluidos en la presente entrega.  
+<strong> Información de la empresa:</strong> Actualmente, el principal método para que las personas de la empresa registren las horas de trabajo es mediante correos que se envían diariamente al final de la jornada laboral. Adicionalmente, se recopila información proveniente de archivos de Excel que contienen los datos de los proyectos, las tareas y los empleados. La información de estas fuentes se recopila mediante notebooks o proceso manuales no incluidos en la presente entrega.  
 
 <p align="justify">
 <strong> Dataset de Grizzly:</strong> Por sugerencia del personal docente del presente proyecto académico y frente a la relativa baja de cantidad de datos presentes en la empresa se incluye datos de un dataset abierto que comparte características similares con la estructura de datos de la empresa. El objetivo es que el presente Dataset permita realizar análisis más complejos y experimentar más escenarios en el ejercicio académico, como por ejemplo entrenar un modelo o visualizar volúmenes de datos en un dashboard.  Es importante aclarar que la información del Dataset no será incluida en el entregable a la empresa
 
 <p align="justify">
-El conjunto de datos utilizado contiene información detallada sobre tareas, proyectos y equipos registrados en la plataforma Gryzzly, orientada al seguimiento del tiempo y desempeño de los proyectos. Entre sus campos principales se encuentran: los identificadores de tarea (tarea_id) y proyecto (proyecto_id), las fechas de creación (creacion_tarea_grizzly, creacion_proyecto_grizzly), la duración planeada y real de cada tarea y proyecto (duracion_total_planeada_tarea, duracion_real_total_tarea, duracion_total_planeada_projecto, duracion_real_total_projecto), así como la fuente de registro (fuente) y el estado del equipo o empresa (estado, oferta). Adicionalmente, se incluye información temporal sobre los equipos (creacion_team_grizzly, eliminacion_team_grizzly, duracion_meses_team), asi como tambien la fecha donde el usuario registro la tarea en grizzly (fecha_registro_grizzly_empleado), como tambien la fecha cuando realizo dicha tarea el empleado (fecha_tarea_empleado). 
+El conjunto de datos utilizado contiene información detallada sobre tareas, proyectos y equipos registrados en la plataforma Gryzzly, orientada al seguimiento del tiempo y desempeño de los proyectos. Entre sus campos principales se encuentran: los identificadores de tarea (tarea_id) y proyecto (proyecto_id), las fechas de creación (creacion_tarea_grizzly, creacion_proyecto_grizzly), la duración planeada y real de cada tarea y proyecto (duracion_total_planeada_tarea, duracion_real_total_tarea, duracion_total_planeada_projecto, duracion_real_total_projecto), así como la fuente de registro (fuente) y el estado del equipo o empresa (estado, oferta). Adicionalmente, se incluye información temporal sobre los equipos (creacion_team_grizzly, eliminacion_team_grizzly, duracion_meses_team), así como también la fecha donde el usuario registró la tarea en Grizzly (fecha_registro_grizzly_empleado), como también la fecha cuando realizó dicha tarea el empleado (fecha_tarea_empleado). 
 
 Para más información sobre el Dataset de Grizzly, se puede acceder al siguiente enlace:   [Seven years of time-tracking data capturing collaboration and failure dynamics: the Gryzzly dataset](https://www.nature.com/articles/s41597-025-04903-2#)
 
 ## 6. Entendimiento de los Datos
 <p align="justify">
-El procedimiento del entendimiento de los datos junto a todo el procesamiento técnico de los mismos se realiza en el notebook de python llamado “proyecto_final.ipynb” ubicado en este mismo repositorio.  
+El procedimiento del entendimiento de los datos junto a todo el procesamiento técnico de los mismos se realiza en el notebook de Python llamado “proyecto_final.ipynb” ubicado en este mismo repositorio.  
 
 ## 7. Conclusiones Iniciales
 <p align="justify">
-aaaaaa
+El registro de horas en la empresa presenta actualmente una alta dispersión de la información entre correos electrónicos y archivos de Excel. Centralizar los registros de las actividades representa un paso inicial para visualizar y disponibilizar la información y aproximarse a un mejor gobierno de datos.
+ 
+<p align="justify">
+Los productos de Datos presentados (API, Dashboard, ETL) responden a necesidades existentes en la organización y permiten un futuro con mayor control, además de habilitar la toma de decisiones basada en datos. Se espera que el monitoreo diario reduzca desviaciones de tiempo, sobrecostos y errores de estimación. El cumplimiento de horas y la productividad podrían aumentar en los diferentes equipos y proyectos trabajados.
+ 
+<p align="justify">
+En la siguiente etapa, se espera enfocarse en terminar el desarrollo y completar la entrega de los productos de datos a la empresa, para que puedan ser implementados y usados, y así, comiencen a proveer valor real para la organización  
