@@ -8,18 +8,34 @@
 # Instalaciones
 Para ejecutar el notebook proyecto_final.ipynb se debe ejecutar en consola cmd el comando ".\setup.bat", con el fin de instalar ambiente virtual y librerías necesarias para la ejecución del notebook. Finalmente, se debe seleccionar el kernel **venv** para ejecutar las celdas de código.
 
+**Instalación de los datos:** El dataset de Gryzzly requerido para el análisis puede ser ubicado en el siguiente enlace: [Repositorio de Datos](https://figshare.com/articles/dataset/Screenshot_2024-12-23_at_11_02_48_png/28114247/2). Es necesario descargar los archivos .csv que se encuentran en el dataset y guardarlos en la carpeta /data una vez se haya clonado el presente repositorio.
+
 
 # Proyecto Ciencia de Datos
 El propósito de este proyecto es aplicar el conjunto de técnicas y herramientas vistas durante el semestre para desarrollar un proyecto de ciencia de datos en una organización.
 
+<p align="justify">
 Con la intención de realizar una entrega de acuerdo a lo propuesto en el enunciado del proyecto académico, parte del contenido se desarrollará en el presente README. El PDF entregable solo es un resumen ejecutivo con la información más relevante. 
 
+
+# Entregables
+<p align="justify">
+El presente repositorio contiene todos los archivos necesarios para el desarrollo y el entendimiento del proyecto. A continuación se listan algunos de los archivos relevantes:  
+ 
+ - ETL_V0.1.ipynb: notebook complementario utilizado para recolectar información de los correos de la empresa.
+ 
+ - proyecto_final.ipynb:  notebook utilizado para recolectar la información del dataset. Es el principal objeto de análisis y donde se encuentra la solución del proyecto.
+
+ - Presentación Entrega: presentación de PowerPoint que es material de la sustentación. El video de la presentación puede ser encontrado en el siguiente enlace: [Video Sustentacion](https://youtu.be/EOA7mniwaAU)
+
+ - Resumen Ejecutivo: archivo pdf que contiene el resumen ejecutivo de la entrega del proyecto.
+ 
 ---
 
 
 # Entrega 1
 
-## 1. Problematica y Negocio.
+## 1. Problemática y Negocio.
 
  ![Proyecto Logo](media/logo_img.jpg)
 
