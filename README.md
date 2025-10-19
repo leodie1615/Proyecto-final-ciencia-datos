@@ -205,9 +205,8 @@ Los productos de Datos presentados (API, Dashboard, ETL) responden a necesidades
 En la siguiente etapa, se espera enfocarse en terminar el desarrollo y completar la entrega de los productos de datos a la empresa, para que puedan ser implementados y usados, y así, comiencen a proveer valor real para la organización  
 
 <p align="justify">
-Con base a la hipotesis practica planteada en donde se comprobo que en los proyectos exitosos los empleados son mas productivos, se propone implementar las siguientes estrategías:
-Estrategias derivadas
-
+Con base a la hipotesis practica planteada en donde se comprobo que en los proyectos exitosos los empleados son mas eficientes, se propone implementar las siguientes estrategías:
+ 
 Identificación y difusión de buenas prácticas
 <p align="justify">
 → Analizar el comportamiento y métodos de los empleados más eficientes para documentar y replicar sus buenas prácticas en el resto del equipo (p. ej., gestión del tiempo, priorización de tareas, enfoque técnico).
