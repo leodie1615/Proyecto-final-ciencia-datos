@@ -2,7 +2,7 @@
 - 202512491 Ivan Suarez
 - 202525657 Diego Baron
 - 123 Santiago Palacios
-- 123 Miguel Benavides
+- 202525326 Miguel Benavides
 
 
 # Instalaciones
@@ -142,8 +142,15 @@ A continuación, se presenta los requerimientos funcionales y no funcionales par
 
 ## 3. Responsible
 <p align="justify">
-aaaaaa
+Teniendo en cuenta que la información recopilada a través de los productos mencionados previamente se caracteriza por ser de carácter corporativo y operativo, no se identifica riesgo asociado a la presencia de datos personales de trabajadores en esta información, por lo que las directrices estipuladas a través de la Ley 1581 de 2012 (Congreso de Colombia, 2012) para la protección de datos personales no tiene lugar en el marco regulatorio del proyecto. A pesar de esto, se debe priorizar los derechos laborales de los trabajadores, salvaguardando la integridad de información corporativa, llevando a que sea necesario la aplicación de principios de seguridad, confidencialidad y proporcionalidad.
 
+ <p align="justify">
+En materia de transparencia, se encontró necesario el desarrollo de un canal de comunicación abierto y continuo que permita conocer el propósito del sistema, datos que se procesan y beneficios esperados promoviendo de esta manera una cultura de confianza. Es indispensable que sea claro que los reportes se emplearán únicamente para consolidación de métricas operativas, trazabilidad de costos operacionales e identificación de puntos de mejora.
+
+  <p align="justify">
+Lo anterior lleva a evaluar la ética necesaria para el desarrollo del proyecto, considerando la responsabilidad social necesaria para que el proyecto mantenga su foco de fortalecimiento de productividad y se mantenga alejado de un control individual. Para esto, se considera imprescindible la implementación de una política interna de tratamiento de datos no personales. El objetivo de esta política de datos organizacional es que las decisiones tomadas a partir de la información recolectada sean justa, informada y respetuosas en el contexto humano, centrándose en la optimización de procesos operacionales y no en prácticas que puedan llevar a acoso laboral (Banco Interamericano de Desarrollo, 2019).
+   <p align="justify">
+Finalmente, aunque no se identifique presencia de datos personales, se encontró un potencial riesgo en el manejo de información confidencial para la compañía, referente a tareas, clientes y presupuestos de proyectos. En los productos de datos planteados se debe garantiza que esta información, de gran valor para la compañía, se mantenga al alcance de personal autorizado. (ESEID, 2024)
 ## 4. Enfoque Analítico
 **Hipótesis nula (H0):**  
 > *No hay diferencia en el uso de recursos (horas, presupuesto) entre proyectos que usan una herramienta de monitoreo diario y los que no.*
