@@ -211,6 +211,7 @@ Los productos de Datos presentados (API, Dashboard, ETL) responden a necesidades
 <p align="justify">
 En la siguiente etapa, se espera enfocarse en terminar el desarrollo y completar la entrega de los productos de datos a la empresa, para que puedan ser implementados y usados, y así, comiencen a proveer valor real para la organización  
 
+### 7.1 Insights
 <p align="justify">
 Con base a la hipotesis practica planteada en donde se comprobo que en los proyectos exitosos los empleados son mas eficientes, se propone implementar las siguientes estrategías:
  
