@@ -203,3 +203,19 @@ Los productos de Datos presentados (API, Dashboard, ETL) responden a necesidades
  
 <p align="justify">
 En la siguiente etapa, se espera enfocarse en terminar el desarrollo y completar la entrega de los productos de datos a la empresa, para que puedan ser implementados y usados, y así, comiencen a proveer valor real para la organización  
+
+<p align="justify">
+Con base a la hipotesis practica planteada en donde se comprobo que en los proyectos exitosos los empleados son mas productivos, se propone implementar las siguientes estrategías:
+Estrategias derivadas
+
+Identificación y difusión de buenas prácticas
+<p align="justify">
+→ Analizar el comportamiento y métodos de los empleados más eficientes para documentar y replicar sus buenas prácticas en el resto del equipo (p. ej., gestión del tiempo, priorización de tareas, enfoque técnico).
+
+Fortalecimiento del proceso de planeación y control
+<p align="justify">
+→ Implementar mecanismos para mejorar la estimación de tiempos y realizar monitoreo temprano de desviaciones entre horas planeadas y reales, con alertas para corregir errores de planificación o problemas de coordinación.
+
+Diseño de incentivos basados en eficiencia y cumplimiento
+<p align="justify">
+→ Crear políticas de reconocimiento o recompensas enfocadas en la eficiencia sostenida (cumplimiento de planes y calidad del trabajo), no solo en la cantidad de horas trabajadas.
