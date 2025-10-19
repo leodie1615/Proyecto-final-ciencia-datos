@@ -1,7 +1,7 @@
 # Integrantes:
 - 202512491 Ivan Suarez
 - 202525657 Diego Baron
-- 123 Santiago Palacios
+- 202523012 Santiago Palacios
 - 202525326 Miguel Benavides
 
 
