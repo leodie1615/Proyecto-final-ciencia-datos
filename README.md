@@ -176,6 +176,13 @@ Para las técnicas estadística se propone por ejemplo un T-Test para comparar e
 <p align="justify">
 <strong>Para el KPI de Cumplimiento de horas por tarea o proyecto:</strong> se sugiere un gráfico de dispersión donde el eje X sean las horas planificadas y el eje Y sean las horas reales. Se traza una diagonal y=x que indica un cumplimiento del 100% entre lo estimado y lo real. De esta manera los puntos que estén por encima de la diagonal están sobrestimando las horas de trabajo y aquellos que estén por debajo están subestimando. Se pueden adicionar también códigos de color para empleados o equipos.  
 
+Para la hipotesis prácticas se propone:
+**Hipótesis nula (H0):**  
+> *Eficiencia promedio del empleado en proyectos exitosos es igual a la eficiencia promedio del empleado en proyectos no exitosos*
+
+**Hipótesis alternativa (H1):**  
+> *Eficiencia promedio del empleado en proyectos exitosos es diferente a la eficiencia promedio del empleado en proyectos no exitosos*
+
 ## 5. Recolección de Datos 
 Para el presente proyecto se utilizan 2 fuentes de datos principales. 
 
