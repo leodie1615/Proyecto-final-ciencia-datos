@@ -11,7 +11,8 @@ venv/
 env/
 .conda/
 pip-wheel-metadata/
-
+maestra.csv
+proyecto_final_primera_entrega.ipynb
 .ipynb_checkpoints/
 *.nbconvert.ipynb
 
