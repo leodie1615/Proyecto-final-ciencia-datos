@@ -206,12 +206,38 @@ Para el presente proyecto se utilizan 2 fuentes de datos principales.
 <strong> Información de la empresa:</strong> Actualmente, el principal método para que las personas de la empresa registren las horas de trabajo es mediante correos que se envían diariamente al final de la jornada laboral. Adicionalmente, se recopila información proveniente de archivos de Excel que contienen los datos de los proyectos, las tareas y los empleados. La información de estas fuentes se recopila mediante notebooks o proceso manuales no incluidos en la presente entrega.  
 
 <p align="justify">
+Los correos que envían los empleados en la empresa contienen información relevante para el análisis del tiempo y la productividad: Fecha del registro, empleado, Id de la tarea realizada, horas trabajadas, horas estimadas, estado de la tarea, proyecto asociado. Estos correos tienen un formato de Timecard, y hacen parte fundamental de la estructura cultural de la empresa y de su estrategia de gestión de proyectos. Es funcional pero esencialmente rudimentario. 
+
+<p align="justify">
+Por otro lado, la información de los archivos de Excel contiene información estructural que complementa y contextualiza los registros horarios de los correos con: Proyectos (presupuestos, categoría, cliente asociado, fecha de inicio y fin.) Actividades (Proyecto asociado, presupuesto, categoría, fecha de inicio y fin). Tareas y Subtareas (Actividad asociada, horas presupuestadas, fecha de inicio y fin.), además, información básica de los empleados y los clientes.
+
+<p align="justify">
 <strong> Dataset de Grizzly:</strong> Por sugerencia del personal docente del presente proyecto académico y frente a la relativa baja de cantidad de datos presentes en la empresa se incluye datos de un dataset abierto que comparte características similares con la estructura de datos de la empresa. El objetivo es que el presente Dataset permita realizar análisis más complejos y experimentar más escenarios en el ejercicio académico, como por ejemplo entrenar un modelo o visualizar volúmenes de datos en un dashboard.  Es importante aclarar que la información del Dataset no será incluida en el entregable a la empresa
 
 <p align="justify">
 El conjunto de datos utilizado contiene información detallada sobre tareas, proyectos y equipos registrados en la plataforma Gryzzly, orientada al seguimiento del tiempo y desempeño de los proyectos. Entre sus campos principales se encuentran: los identificadores de tarea (tarea_id) y proyecto (proyecto_id), las fechas de creación (creacion_tarea_grizzly, creacion_proyecto_grizzly), la duración planeada y real de cada tarea y proyecto (duracion_total_planeada_tarea, duracion_real_total_tarea, duracion_total_planeada_projecto, duracion_real_total_projecto), así como la fuente de registro (fuente) y el estado del equipo o empresa (estado, oferta). Adicionalmente, se incluye información temporal sobre los equipos (creacion_team_grizzly, eliminacion_team_grizzly, duracion_meses_team), así como también la fecha donde el usuario registró la tarea en Grizzly (fecha_registro_grizzly_empleado), como también la fecha cuando realizó dicha tarea el empleado (fecha_tarea_empleado). 
 
 Para más información sobre el Dataset de Grizzly, se puede acceder al siguiente enlace:   [Seven years of time-tracking data capturing collaboration and failure dynamics: the Gryzzly dataset](https://www.nature.com/articles/s41597-025-04903-2#)
+
+**Diagrama de Recolección de Datos** 
+<p align="justify">
+El siguiente diagrama resume el flujo de origen y consumo de los datos utilizados en el proyecto. Del lado izquierdo, la información interna de la empresa es recolectada para crear un dashboard de Monitoreo. Inicialmente los datos históricos se recolectan con una ETL, encargada de extraer la información existente en los correos corporativos y los archivos de Excel. 
+
+![Estructura de Datos](media/estructura_datos.png) 
+
+<p align="justify">
+A futuro los empleados usarán un API donde podrán hacer el registro de sus horas y crear entidades como tareas, o proyectos, eliminando la dependencia de los correos y ciertos archivos más tradicionales.  
+
+<p align="justify">
+En el lado derecho de la gráfica, se presenta la fuente de datos externa, el dataset de Grizzly, el cual se emplea exclusivamente con fines académicos para la experimentación analítica y el desarrollo de un modelo de Machine Learning. Este dataset no se integrará al entregable empresarial ni se mezclará con los datos reales de IMG. 
+
+
+**Sobre la compatibilidad de Grizzly** 
+<p align="justify">
+La inclusión de un dataset abierto que apoyara el ejercicio académico en el proyecto era completamente necesario debido a la baja cantidad de datos presentes en la empresa. Tras una investigación de parte de los estudiantes se selecciona el dataset Grizzly dado que tiene una estructura muy similar a la de IMG en sus datos. También tiene un contexto similar pues se trata de una recolección de timecards en proyectos de software en industrias de Marketing, Finanzas y Bancos, además de haber sido publicado en abril de 2025 y contener información de los últimos años (2017-2024).  
+
+ <p align="justify">
+Es cierto que existen diferencias contextuales, por ejemplo, el país. Los datos del Grizzly provienen de Francia, mientras que la empresa IMG en su contexto colombiano tendrá diferencias clave como la inexistencia de estaciones que afecten las horas trabajadas. A pesar de estas diferencias se define que Grizzly es la mejor opción para crear un modelo de analítica que luego pueda ser ajustado y modificado para las necesidades de IMG, una vez exista un volumen de datos suficiente.  
 
 ## 6. Entendimiento de los Datos
 <p align="justify">
@@ -242,3 +268,58 @@ Fortalecimiento del proceso de planeación y control
 Diseño de incentivos basados en eficiencia y cumplimiento
 <p align="justify">
 → Crear políticas de reconocimiento o recompensas enfocadas en la eficiencia sostenida (cumplimiento de planes y calidad del trabajo), no solo en la cantidad de horas trabajadas.
+
+## 8. Preparación de datos
+Aaaaaa aaaaaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaaa aaaaa aaaaaaaaa aaaaaa bbbbbb bbbbbb bbb 
+
+## 9. Estrategia de validación y selección de modelo
+Aaaaaa aaaaaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaaa aaaaa aaaaaaaaa aaaaaa bbbbbb bbbbbb bbb 
+
+
+## 10. Construcción y evaluación del modelo
+Aaaaaa aaaaaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaaa aaaaa aaaaaaaaa aaaaaa bbbbbb bbbbbb bbb 
+
+
+## 11. Construcción del Producto de Datos
+A continuación, se describen los productos de Datos entregables en el presente proyecto a partir de la ideación inicial, para cada uno se da una descripción inicial, su método de despliegue y los archivos entregables relacionados en el repositorio.  
+
+### ETL 
+<p align="justify">
+El flujo de la ETL tiene como propósito recolectar y consolidar los datos históricos provenientes de los correos de registro de horas y de los archivos de Excel utilizados por la empresa. Dado que el registro actual se realiza mediante correos diarios con formato de timecard, el ETL se encarga de la lectura, limpieza y recolección. Se implementó mediante un script en Python que recorre una carpeta con los correos descargados, extrae los campos relevantes y los transforma en un archivo CSV estructurado. 
+
+ - **Despliegue:** La ETL se ejecuta únicamente una vez para cargar el histórico inicial al repositorio de datos. Posteriormente, la recolección de información será reemplazada por la API, por lo que el ETL no hace parte del proceso operativo futuro. El script puede ejecutarse en cualquier directorio local o servidor interno de la empresa, sin requerir infraestructura adicional. Por último, el ETL será entregado a la empresa como una herramienta para ejecutar cuando se comience la implementación de la API.
+ - **Archivo entregable:** Se entrega el script en Python, el archivo CSV resultante del procesamiento. Ubicado en el repositorio bajo ETL_V0.1.ipynb 
+
+
+### API REST 
+<p align="justify">
+La API representa la estrategia principal para la recolección de datos en el futuro. Permite registrar horas de trabajo, crear tareas y proyectos, actualizar estados y consultar información de forma estructurada y centralizada. Inicialmente la API se alimenta de la información recolectada por la ETL usando los registros históricos, asegurando que estos sean almacenados. Mediante el futuro uso por las personas de la empresa, la API habilita la trazabilidad, estandarización y validación de los datos ingresados.  
+<p align="justify">
+La API se implementó usando Python y las librerías de Flask y SQLAlchemy. Como base de datos se usa un archivo .db llamado trazabilidad, a futuro podría establecerse una base de datos transaccional que se aloje en un servidor.  
+
+- **Despliegue:** El despliegue del API se realizará mediante la intranet de la empresa IMG Procesos y Tecnología. Solo es necesario permitir acceso a usuarios autorizados que se encuentren dentro de la red interna de la empresa.  
+- **Archivo Entregable:** Se entrega todo el código fuente de la API junto a la base de datos. Esto incluye todas las pantallas (.html), junto con su lógica(.js) y su apariencia(.css). Para ejecutar la API se debe correr el script llamado app.py. Todos los documentos de la API se encuentran bajo el archivo API_IMG.zip  
+
+### Dashboard 
+<p align="justify"> 
+El dashboard habilita el monitoreo de la operación de la empresa, la integración de KPIs claves como el avance de los proyectos, el cumplimiento de las horas o la productividad de los trabajadores y la detección temprana de posibles complicaciones. El dashboard se conecta directamente al repositorio administrado por la API, asegurando que la información este centralizada, actualizada y de fácil acceso.  
+<p align="justify">
+El Dashboard se desarrolló utilizando Power BI, incluye 2 páginas con filtros y diferentes graficas que permiten analizar la informacion del desempeño de los proyectos y los empleados. 
+
+- **Despliegue:** El despliegue se realizará mediante una licencia de Power BI que habilite la publicación en linea. Se implementará controles de accesos para asegurar que la informacion sea accedida solo por las personas del equipo administrativo.  
+- **Archivo Entregable:** Se entrega el archivo .pbix que contiene las visualizaciones con el codigo DAX usado para calcular diferentes métricas. Además se adjunta la informacion de la base de datos como archivos .csv (para facilitar la instalación en la presente entrega). Todos los documentos del Dashboard se encuentran bajo el archivo: dashboard_IMG.zip  
+
+### Modelo 
+<p align="justify">
+Modelo de Machine Learning usado para XXXXXXXXXXXX 
+
+- **Despliegue:** El despliegue tambien se puede realizar en la intranet de la empresa, o incluso en la misma API ya propuesta. XXXXXXXXXXXXXXXX 
+
+- **Archivo entregable:** XXXXXXXXXXXXXXXXXXXX 
+
+## 12. Retroalimentación por parte de la organización
+Aaaaaa aaaaaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaaa aaaaa aaaaaaaaa aaaaaa bbbbbb bbbbbb bbb 
+
+
+## 13. Conclusiones 
+Aaaaaa aaaaaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaaa aaaaa aaaaaaaaa aaaaaa bbbbbb bbbbbb bbb 
