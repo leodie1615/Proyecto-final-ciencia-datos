@@ -26,6 +26,10 @@ El presente repositorio contiene todos los archivos necesarios para el desarroll
  
  - proyecto_final.ipynb:  notebook utilizado para recolectar la información del dataset. Es el principal objeto de análisis y donde se encuentra la solución del proyecto.
 
+ - API_IMG.zip: Archivo comprimido que contiene el código relacionado con el API. Para ejecutar se debe usar archivo app.py
+
+ - dashboard_IMG.zip: Archivo comprimido que contiene los archivos de datos y el archivo que contiene el dashboard
+
  - Presentación Entrega: presentación de PowerPoint que es material de la sustentación. El video de la presentación puede ser encontrado en el siguiente enlace: [Video Sustentacion](https://youtu.be/EOA7mniwaAU)
 
  - Resumen Ejecutivo: archivo pdf que contiene el resumen ejecutivo de la entrega del proyecto.
@@ -92,6 +96,11 @@ Para dar respuesta a la problemática identificada, se propone el diseño e impl
 
  <p align="justify">
 <strong>Dashboard de gestión y desempeño</strong>: Finalmente, se propone la creación de un tablero interactivo de control y seguimiento, orientado a la analítica de proyectos y productividad. Este dashboard permitirá visualizar los costos planificados versus los reales, el avance de tareas por empleado o equipo, y los principales indicadores de rendimiento, eficiencia y cumplimiento de objetivos. El tablero consolidará métricas a distintos niveles de agregación (diario, semanal, quincenal y mensual), facilitando el monitoreo de tendencias y la toma de decisiones basadas en evidencias.
+
+ <p align="justify">
+<strong>Modelo de Analitica</strong>:  Por sugerencia del personal docente y con la intención de completar más ampliamente el alcance del proyecto se implementa también la creación de un modelo de Machine Learning. Para los datos de entrenamiento se hará uso de un dataset externo con características similares a las estructuras de datos de la empresa IMG, el objetivo es que en un futuro cercano el modelo pueda ser ajustado a las necesidades de la empresa usando sus propios registros.
+
+COLOCAR MAS INFORMACION GENERAL DEL MODELO XXXXXXXXXXXXXXXXXXXXXXXX
 
 
 A continuación, se presenta los requerimientos funcionales y no funcionales para cada uno de los productos de datos:
@@ -160,12 +169,12 @@ A continuación, se presenta los requerimientos funcionales y no funcionales par
 <p align="justify">
 Teniendo en cuenta que la información recopilada a través de los productos mencionados previamente se caracteriza por ser de carácter corporativo y operativo, no se identifica riesgo asociado a la presencia de datos personales de trabajadores en esta información, por lo que las directrices estipuladas a través de la Ley 1581 de 2012 (Congreso de Colombia, 2012) para la protección de datos personales no tiene lugar en el marco regulatorio del proyecto. A pesar de esto, se debe priorizar los derechos laborales de los trabajadores, salvaguardando la integridad de información corporativa, llevando a que sea necesario la aplicación de principios de seguridad, confidencialidad y proporcionalidad.
 
- <p align="justify">
+<p align="justify">
 En materia de transparencia, se encontró necesario el desarrollo de un canal de comunicación abierto y continuo que permita conocer el propósito del sistema, datos que se procesan y beneficios esperados promoviendo de esta manera una cultura de confianza. Es indispensable que sea claro que los reportes se emplearán únicamente para consolidación de métricas operativas, trazabilidad de costos operacionales e identificación de puntos de mejora.
 
-  <p align="justify">
+<p align="justify">
 Lo anterior lleva a evaluar la ética necesaria para el desarrollo del proyecto, considerando la responsabilidad social necesaria para que el proyecto mantenga su foco de fortalecimiento de productividad y se mantenga alejado de un control individual. Para esto, se considera imprescindible la implementación de una política interna de tratamiento de datos no personales. El objetivo de esta política de datos organizacional es que las decisiones tomadas a partir de la información recolectada sean justa, informada y respetuosas en el contexto humano, centrándose en la optimización de procesos operacionales y no en prácticas que puedan llevar a acoso laboral (Banco Interamericano de Desarrollo, 2019).
-   <p align="justify">
+<p align="justify">
 Finalmente, aunque no se identifique presencia de datos personales, se encontró un potencial riesgo en el manejo de información confidencial para la compañía, referente a tareas, clientes y presupuestos de proyectos. En los productos de datos planteados se debe garantiza que esta información, de gran valor para la compañía, se mantenga al alcance de personal autorizado. (ESEID, 2024)
 
 
@@ -223,7 +232,7 @@ Para más información sobre el Dataset de Grizzly, se puede acceder al siguient
 <p align="justify">
 El siguiente diagrama resume el flujo de origen y consumo de los datos utilizados en el proyecto. Del lado izquierdo, la información interna de la empresa es recolectada para crear un dashboard de Monitoreo. Inicialmente los datos históricos se recolectan con una ETL, encargada de extraer la información existente en los correos corporativos y los archivos de Excel. 
 
-![Estructura de Datos](media/estructura_datos.png) 
+![Estructura de Datos](media/estructura_datos.jpeg) 
 
 <p align="justify">
 A futuro los empleados usarán un API donde podrán hacer el registro de sus horas y crear entidades como tareas, o proyectos, eliminando la dependencia de los correos y ciertos archivos más tradicionales.  
@@ -241,7 +250,9 @@ Es cierto que existen diferencias contextuales, por ejemplo, el país. Los datos
 
 ## 6. Entendimiento de los Datos
 <p align="justify">
-El procedimiento del entendimiento de los datos junto a todo el procesamiento técnico de los mismos se realiza en el notebook de Python llamado “proyecto_final.ipynb” ubicado en este mismo repositorio.  
+El procedimiento del entendimiento de los datos junto a todo el procesamiento técnico de los mismos se realiza en el notebook de Python llamado “proyecto_final.ipynb” ubicado en este mismo repositorio.
+<p align="justify">
+Como se indicó anteriormente, el presente proyecto cuenta con dos fuentes de datos principales; el Entendimiento de los Datos se realiza sobre el Dataset de Grizzly, pues esto habilita los datos para su uso posterior en la creación del Modelo de Analitica. 
 
 ## 7. Conclusiones Iniciales
 <p align="justify">
@@ -298,28 +309,65 @@ La API representa la estrategia principal para la recolección de datos en el fu
 La API se implementó usando Python y las librerías de Flask y SQLAlchemy. Como base de datos se usa un archivo .db llamado trazabilidad, a futuro podría establecerse una base de datos transaccional que se aloje en un servidor.  
 
 - **Despliegue:** El despliegue del API se realizará mediante la intranet de la empresa IMG Procesos y Tecnología. Solo es necesario permitir acceso a usuarios autorizados que se encuentren dentro de la red interna de la empresa.  
-- **Archivo Entregable:** Se entrega todo el código fuente de la API junto a la base de datos. Esto incluye todas las pantallas (.html), junto con su lógica(.js) y su apariencia(.css). Para ejecutar la API se debe correr el script llamado app.py. Todos los documentos de la API se encuentran bajo el archivo API_IMG.zip  
+- **Archivo Entregable:** Se entrega todo el código fuente de la API junto a la base de datos. Esto incluye todas las pantallas (.html), junto con su lógica (.js) y su apariencia (.css). Para ejecutar la API se debe correr el script llamado app.py. Todos los documentos de la API se encuentran bajo el archivo API_IMG.zip  
 
 ### Dashboard 
 <p align="justify"> 
-El dashboard habilita el monitoreo de la operación de la empresa, la integración de KPIs claves como el avance de los proyectos, el cumplimiento de las horas o la productividad de los trabajadores y la detección temprana de posibles complicaciones. El dashboard se conecta directamente al repositorio administrado por la API, asegurando que la información este centralizada, actualizada y de fácil acceso.  
+El dashboard habilita el monitoreo de la operación de la empresa, la integración de KPIs claves como el avance de los proyectos, el cumplimiento de las horas o la productividad de los trabajadores y la detección temprana de posibles complicaciones. El dashboard se conecta directamente al repositorio administrado por la API, asegurando que la información esté centralizada, actualizada y de fácil acceso.  
 <p align="justify">
-El Dashboard se desarrolló utilizando Power BI, incluye 2 páginas con filtros y diferentes graficas que permiten analizar la informacion del desempeño de los proyectos y los empleados. 
+El Dashboard se desarrolló utilizando Power BI, incluye 2 páginas con filtros y diferentes gráficas que permiten analizar la información del desempeño de los proyectos y los empleados. 
 
-- **Despliegue:** El despliegue se realizará mediante una licencia de Power BI que habilite la publicación en linea. Se implementará controles de accesos para asegurar que la informacion sea accedida solo por las personas del equipo administrativo.  
-- **Archivo Entregable:** Se entrega el archivo .pbix que contiene las visualizaciones con el codigo DAX usado para calcular diferentes métricas. Además se adjunta la informacion de la base de datos como archivos .csv (para facilitar la instalación en la presente entrega). Todos los documentos del Dashboard se encuentran bajo el archivo: dashboard_IMG.zip  
+- **Despliegue:** El despliegue se realizará mediante una licencia de Power BI que habilite la publicación en línea. Se implementarán controles de accesos para asegurar que la información sea accesible solo por las personas del equipo administrativo.  
+- **Archivo Entregable:** Se entrega el archivo .pbix que contiene las visualizaciones con el código DAX usado para calcular diferentes métricas. Además se adjunta la información de la base de datos como archivos .csv (para facilitar la instalación en la presente entrega). Todos los documentos del Dashboard se encuentran bajo el archivo: dashboard_IMG.zip  
 
 ### Modelo 
 <p align="justify">
 Modelo de Machine Learning usado para XXXXXXXXXXXX 
 
-- **Despliegue:** El despliegue tambien se puede realizar en la intranet de la empresa, o incluso en la misma API ya propuesta. XXXXXXXXXXXXXXXX 
+- **Despliegue:** El despliegue también se puede realizar en la intranet de la empresa, o incluso en la misma API ya propuesta. XXXXXXXXXXXXXXXX 
 
 - **Archivo entregable:** XXXXXXXXXXXXXXXXXXXX 
+
+#### Diagrama de arquitectura
+
+A continuación, se presentan dos diagramas: 
+
+![Arquitectura Proyecto](media/arquitectura.jpg) 
+
+La arquitectura actual del presente proyecto, con los cuatro productos de datos que usan la fuente externa del dataset Grizzly y los datos internos de la empresa. El prototipo del Modelo de Analítica es un adicional para el ejercicio académico, pero no es integrado aun a la arquitectura empresarial 
+
+![Arquitectura Proyecto](media/arquitectura_futuro.jpg) 
+La arquitectura propuesta a futuro para la empresa, manteniendo los cuatro productos de datos, pero usando como principal fuente de información lo consignado por los usuarios mediante la API. La Base de Datos alimenta de datos al dashboard y al Modelo de Analítica, que ya está integrado en la solución empresarial y puede generar informacion adicional para los usuarios 
+
+
 
 ## 12. Retroalimentación por parte de la organización
 Aaaaaa aaaaaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaaa aaaaa aaaaaaaaa aaaaaa bbbbbb bbbbbb bbb 
 
 
 ## 13. Conclusiones 
-Aaaaaa aaaaaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaaa aaaaa aaaaaaaaa aaaaaa bbbbbb bbbbbb bbb 
+- ¿Se cumplieron los objetivos del proyecto? 
+<p align="justify">
+Si, los objetivos propuestos inicialmente en el proyecto se cumplieron de manera satisfactoria. Se desarrollaron todos los productos de datos propuestos; la ETL inicial para consolidar la información histórica de la empresa, un API transaccional para la captura estructurada de la información, un dashboard que apoya el monitoreo y la gestión de proyecto, y un prototipo de modelo analítico. Todos estos productos permiten a IMG Procesos y Tecnología mejorar la trazabilidad, y el seguimiento de los proyectos, centralizar los datos, y facilitar la toma de decisiones basadas en datos 
+
+- ¿Cuáles fueron las mayores dificultades que se obtuvieron durante su desarrollo? 
+<p align="justify">
+El principal obstáculo enfrentado en el desarrollo del presente proyecto está relacionado con la cantidad de datos encontrados en la empresa, después de haber comenzado el desarrollo del proyecto, se encontró que el volumen de datos en IMG era insuficiente para la construcción de un Modelo de Analítica. Esta dificultad obligó a reformular el alcance técnico del proyecto, a incorporar un dataset externo y a tener esfuerzos adicionales con el entendimiento y procesamiento de los datos.  
+<p align="justify">
+A pesar de esto, el proyecto logró avanzar de manera consistente, la inclusión de Grizzly permitió mantener el componente académico del curso y realizar procesos de analítica de datos, mientras que los demás entregables aportan valor a la estrategia de datos de la empresa. 
+
+- ¿Qué estimación se puede dar respecto a cómo se impactarían las métricas de negocio (KPIs) una vez el producto de datos sea utilizado por usuarios reales? 
+
+- ¿Qué condiciones considera que deberían tener los datos para obtener mejores resultados? Más datos, nuevas características, menor sesgo, etc. 
+<p align="justify">
+La principal mejora para IMG sería un mayor volumen de datos disponibles de forma estructurada y centralizada, se espera que mediante la nueva API sea más sencillo para las personas de la empresa hacer sus registros diarios y de esta manera aumentar el histórico de datos, y así, ver tendencias y poder realizar analítica sobre los datos.  
+<p align="justify">
+Sería beneficioso también enriquecer las entidades actuales (Proyectos, Actividades, Tareas, Empleados) con atributos adicionales que aporten contexto, por ejemplo, categorías de trabajo, nivel de complejidad, nivel de prioridad, tipo de clientes, mantenimiento o nuevo desarrollo. Este informacion adicional ampliaría las posibilidades analíticas de los modelos y permitiría crear nuevas métricas en el dashboard. 
+<p align="justify">
+En cuanto al dataset Grizzly, aunque su anonimización es comprensible, la ausencia de variables descriptivas (como categorías o nombres más interpretables) limitó parcialmente la comprensión del contexto. No obstante, su estructura permitió desarrollar escenarios analíticos útiles para el alcance académico del proyecto. 
+
+ 
+
+- ¿El mejor modelo obtenido es suficiente para dar solución al problema u oportunidad de negocio abordado? 
+
+
