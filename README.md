@@ -6,7 +6,7 @@
 
 
 # Instalaciones
-Para ejecutar el notebook proyecto_final_segunda_entrega.ipynb se debe ejecutar en consola cmd el comando ".\setup.bat", con el fin de instalar ambiente virtual y librerías necesarias para la ejecución del notebook. Finalmente, se debe seleccionar el kernel **venv** para ejecutar las celdas de código. Asimismo, utiliza como insumo principal para el entrenamiento del modelo la base maestra_segunda_entrega.rar. Este archivo debe ser descomprimido previamente para obtener el archivo en formato .csv, el cual es requerido para cargar, explorar y procesar los datos durante el desarrollo del modelo.
+Para ejecutar el notebook proyecto_final_segunda_entrega.ipynb se debe ejecutar en consola cmd el comando ".\setup.bat", con el fin de instalar ambiente virtual y librerías necesarias para la ejecución del notebook. Luego, se debe seleccionar el kernel **venv** para ejecutar las celdas de código. Asimismo, el notebook utiliza como insumo principal para el entrenamiento del modelo la base maestra_segunda_entrega.rar. Este archivo debe ser descomprimido previamente para obtener el archivo en formato .csv, el cual es requerido para cargar, explorar y procesar los datos durante el desarrollo del modelo.
 
 Para el despliegue y consumo del modelo, se debe correr en consola los siguientes comandos:
 - pip install scikit-learn  (una sola vez)
