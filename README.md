@@ -13,6 +13,8 @@ Para el despliegue y consumo del modelo, se debe correr en consola los siguiente
 - pip install streamlit     (una sola vez)
 - pip install joblib        (una sola vez)
 - python -m streamlit run app_2.py
+
+
 Una vez ejecutados los comandos, se abrirá en el navegador la interfaz de Streamlit. Allí, el usuario deberá ingresar las características del proyecto a estimar, y la aplicación utilizará el modelo cargado para generar y mostrar la estimación de duración en horas.
 
 **Instalación de datos primera entrega :** El dataset de Gryzzly requerido para el análisis puede ser ubicado en el siguiente enlace: [Repositorio de Datos](https://figshare.com/articles/dataset/Screenshot_2024-12-23_at_11_02_48_png/28114247/2). Es necesario descargar los archivos .csv que se encuentran en el dataset y guardarlos en la carpeta /data una vez se haya clonado el presente repositorio.
