@@ -8,7 +8,16 @@
 # Instalaciones
 Para ejecutar el notebook proyecto_final_segunda_entrega.ipynb se debe ejecutar en consola cmd el comando ".\setup.bat", con el fin de instalar ambiente virtual y librerías necesarias para la ejecución del notebook. Finalmente, se debe seleccionar el kernel **venv** para ejecutar las celdas de código.
 
-**Instalación de los datos:** El dataset de Gryzzly requerido para el análisis puede ser ubicado en el siguiente enlace: [Repositorio de Datos](https://figshare.com/articles/dataset/Screenshot_2024-12-23_at_11_02_48_png/28114247/2). Es necesario descargar los archivos .csv que se encuentran en el dataset y guardarlos en la carpeta /data una vez se haya clonado el presente repositorio.
+Para el despliegue y consumo del modelo, se debe correr en consola los siguientes comandos:
+- pip install scikit-learn  (una sola vez)
+- pip install streamlit     (una sola vez)
+- pip install joblib        (una sola vez)
+- python -m streamlit run app_2.py
+Una vez ejecutados los comandos, se abrirá en el navegador la interfaz de Streamlit. Allí, el usuario deberá ingresar las características del proyecto a estimar, y la aplicación utilizará el modelo cargado para generar y mostrar la estimación de duración en horas.
+
+**Instalación de datos primera entrega :** El dataset de Gryzzly requerido para el análisis puede ser ubicado en el siguiente enlace: [Repositorio de Datos](https://figshare.com/articles/dataset/Screenshot_2024-12-23_at_11_02_48_png/28114247/2). Es necesario descargar los archivos .csv que se encuentran en el dataset y guardarlos en la carpeta /data una vez se haya clonado el presente repositorio.
+
+**Instalación de datos segunda entrega :** El notebook proyecto_final_segunda_entrega.ipynb utiliza como insumo principal para el entrenamiento del modelo la base maestra_segunda_entrega.rar. Este archivo debe ser descomprimido previamente para obtener el archivo en formato .csv, el cual es requerido para cargar, explorar y procesar los datos durante el desarrollo del modelo.
 
 
 # Proyecto Ciencia de Datos
