@@ -108,8 +108,6 @@ Para dar respuesta a la problemática identificada, se propone el diseño e impl
  <p align="justify">
 <strong>Modelo de Analitica</strong>:  Por sugerencia del personal docente y con la intención de completar más ampliamente el alcance del proyecto se implementa también la creación de un modelo de Machine Learning. Para los datos de entrenamiento se hará uso de un dataset externo con características similares a las estructuras de datos de la empresa IMG, el objetivo es que en un futuro cercano el modelo pueda ser ajustado a las necesidades de la empresa usando sus propios registros.
 
-COLOCAR MAS INFORMACION GENERAL DEL MODELO XXXXXXXXXXXXXXXXXXXXXXXX
-
 
 A continuación, se presenta los requerimientos funcionales y no funcionales para cada uno de los productos de datos:
 
@@ -289,14 +287,45 @@ Diseño de incentivos basados en eficiencia y cumplimiento
 → Crear políticas de reconocimiento o recompensas enfocadas en la eficiencia sostenida (cumplimiento de planes y calidad del trabajo), no solo en la cantidad de horas trabajadas.
 
 ## 8. Preparación de datos
-Aaaaaa aaaaaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaaa aaaaa aaaaaaaaa aaaaaa bbbbbb bbbbbb bbb 
+<p align="justify">
+Como insumo se utilizó la base transformada de la primera entrega (datos recolectados de la plataforma Grizzly). Las métricas del modelo mejoraron significativamente gracias a un conjunto de transformaciones de limpieza y enriquecimiento de los datos, que permitieron reducir el ruido, elevar la calidad de las variables y mitigar el impacto de valores extremos que afectaban el aprendizaje. En particular:  
+
+- Creación de variables agregadas como cantidad_tareas y num_seguimientos, orientadas a capturar la intensidad operativa de cada proyecto mediante conteos consolidados.  
+
+- Tratamiento de la asimetría en variables numéricas, donde se identificó una asimetría positiva elevada. Se aplicó winsorización basada en criterios del negocio, reduciendo la influencia de outliers sin eliminar información relevante. Esta corrección contribuyó a disminuir el RMSE.  
+
+- Depuración de valores atípicos en la variable objetivo (duracion_real_total_projecto), seleccionando rangos representativos de los proyectos con mayor frecuencia para mejorar la estabilidad del modelo.  
+
+- Imputación de valores faltantes en la variable duracion_meses_team, reemplazando nulos por el promedio para preservar coherencia en el comportamiento histórico.  
+
+- Codificación de variables categóricas mediante OneHotEncoder, adecuado dado que estas columnas no presentaban alta cardinalidad. 
+
+- Estandarización de variables numéricas utilizando StandardScaler, para homogenizar escalas y favorecer el desempeño de modelos sensibles a magnitud. 
 
 ## 9. Estrategia de validación y selección de modelo
-Aaaaaa aaaaaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaaa aaaaa aaaaaaaaa aaaaaa bbbbbb bbbbbb bbb 
+<p align="justify">
+Se implementó una estrategia de validación robusta combinando una división inicial de los datos en entrenamiento y prueba (80%-20%, con random_state=42) junto con un proceso de búsqueda de hiperparámetros mediante GridSearchCV. Aunque se mantiene un conjunto de prueba independiente para la evaluación final, GridSearchCV aplica validación cruzada interna, dividiendo automáticamente el conjunto de entrenamiento en n folds. En cada iteración, el modelo entrena en una fracción de los datos y valida en la restante, rotando los folds. Este procedimiento reduce el riesgo de sesgo por particiones aleatorias y permite seleccionar el modelo e hiperparámetros óptimos de forma más confiable. Así, la evaluación final se realiza únicamente sobre el conjunto de prueba, garantizando imparcialidad en la medición del desempeño.   
 
 
 ## 10. Construcción y evaluación del modelo
-Aaaaaa aaaaaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaaa aaaaa aaaaaaaaa aaaaaa bbbbbb bbbbbb bbb 
+El objetivo del modelo es predecir la duración real (en horas) de los proyectos. Para ello se entrenaron y evaluaron tres algoritmos distintos: LinearRegression, RandomForestRegressor y XGBRegressor, cada uno explorado mediante diferentes configuraciones de hiperparámetros con el fin de identificar la mejor versión de cada modelo.  
+
+Se implementó un proceso sistemático de experimentación donde se definieron grillas de hiperparámetros para Random Forest y XGBoost, utilizando validación cruzada para seleccionar los modelos con mejor desempeño según las métricas definidas en el enfoque analítico (MAE, RMSE y R²). En contraste, LinearRegression se evaluó como un modelo base para establecer un punto de referencia.  
+
+Los resultados muestran que RandomForestRegressor y XGBRegressor presentan desempeños muy similares en términos de R², ambos significativamente superiores al modelo lineal. El modelo de regresión lineal obtiene valores de R² aproximadamente 10 puntos porcentuales por debajo, lo cual evidencia que las relaciones entre las variables y la variable objetivo no son puramente lineales. En cambio, los modelos basados en árboles capturan de manera más efectiva patrones no lineales y efectos de interacción presentes en los datos.  
+
+En términos de oportunidades de mejora, se identifican posibles líneas de trabajo futuras como: incorporar nuevas variables derivadas que capturen relaciones no lineales, evaluar modelos polinómicos o modelos de ensamble más complejos, y profundizar en el manejo de valores atípicos para reducir aún más el error de predicción. 
+
+| Modelo | MAE | RMSE | R2 |
+|---|---|---:|---|
+| **LinearRegression** | 3.85 | 4.98 | 0.47 |
+| **RandomForestRegressor** | 3.35 | 4.00 | 0.57 |
+| **XGBRegressor** | 3.29 | 4.98 | 0.57 |
+
+Por otro lado, la métrica principal seleccionada para la evaluación fue el MAE, dado que proporciona una interpretación directa del error promedio en horas entre la duración predicha y la duración real del proyecto. Los resultados muestran que, para los tres modelos evaluados, el MAE se encuentra en un rango entre 3.2 y 3.8 horas, lo cual indica un nivel de error relativamente estable y comparable entre los modelos, con ligeras ventajas para los modelos basados en árboles sobre la regresión lineal.  
+
+En un contexto empresarial, un R² del 57% no es perfecto, pero sí útil y accionable, especialmente si la organización no es todavía data-driven y apenas comienza a integrar modelos predictivos. Permite generar estimaciones más informadas que la intuición o que reglas manuales, y sirve como base para seguir mejorando el proceso de modelado y recolección de datos. 
+
 
 
 ## 11. Construcción del Producto de Datos
@@ -330,11 +359,21 @@ El Dashboard se desarrolló utilizando Power BI, incluye 2 páginas con filtros 
 
 ### Modelo 
 <p align="justify">
-Modelo de Machine Learning usado para XXXXXXXXXXXX 
+El modelo seleccionado para estimar la duración de los proyectos fue un algoritmo basado en árboles de decisión, elegido por su buen desempeño en tareas de predicción con datos heterogéneos. Este modelo utiliza como insumos variables como la duración planeada del proyecto, la cantidad de tareas asociadas, el número de seguimientos registrados y otras características relevantes que permiten capturar la complejidad y variabilidad de cada proyecto 
 
-- **Despliegue:** El despliegue también se puede realizar en la intranet de la empresa, o incluso en la misma API ya propuesta. XXXXXXXXXXXXXXXX 
+Propósito principal: validación rápida del funcionamiento, la experiencia de usuario (UX) y la lógica de preprocesamiento en un entorno de aplicación real. 
 
-- **Archivo entregable:** XXXXXXXXXXXXXXXXXXXX 
+- **Despliegue:** Se implementó el despliegue del modelo predictivo de Machine Learning (el mejor modelo obtenido) por medio de la herramienta Streamlit. Esta fase se considera una Prueba de Concepto Funcional (PoC) con el siguiente alcance: 
+
+- **Archivo entregable:** 
+El entregable final consta de un conjunto de archivos (artefactos) que encapsulan el modelo entrenado y los transformadores de datos, junto con el script de la aplicación: 
+
+- **Archivos entregables:**
+  - `rf.joblib`: Modelo principal (encapsulado).
+  - `standard_scaler.joblib`: Usado en `preprocess_and_predict` para escalar las variables numéricas de entrada.
+  - `one_hot_encoder.joblib`: Usado en `preprocess_and_predict` para transformar las variables categóricas (como estado, oferta, fuente) en columnas binarias.
+  - `final_columns.joblib`: Usado para asegurar que el DataFrame de entrada al modelo (`final_input_df`) tenga exactamente las mismas columnas y el mismo orden que se usó durante el entrenamiento.
+  - `app_2.py`: Ejecutado con `streamlit run app_2.py` para lanzar el prototipo funcional.
 
 #### Diagrama de arquitectura
 
@@ -345,37 +384,39 @@ A continuación, se presentan dos diagramas:
 La arquitectura actual del presente proyecto, con los cuatro productos de datos que usan la fuente externa del dataset Grizzly y los datos internos de la empresa. El prototipo del Modelo de Analítica es un adicional para el ejercicio académico, pero no es integrado aun a la arquitectura empresarial 
 
 ![Arquitectura Proyecto](media/arquitectura_futuro.jpg) 
+
 La arquitectura propuesta a futuro para la empresa, manteniendo los cuatro productos de datos, pero usando como principal fuente de información lo consignado por los usuarios mediante la API. La Base de Datos alimenta de datos al dashboard y al Modelo de Analítica, que ya está integrado en la solución empresarial y puede generar informacion adicional para los usuarios 
 
 
 
 ## 12. Retroalimentación por parte de la organización
-Aaaaaa aaaaaaaa aaaaaaaa aaaaaa aaaaaaa aaaaaaa aaaaa aaaaaaaaa aaaaaa bbbbbb bbbbbb bbb 
+Se realizaron varias reuniones con la IMG. La primera tuvo lugar el 26 de agosto de 2025 y tuvo como objetivo identificar las principales problemáticas que el producto buscaba resolver. Como resultado de esta sesión, se elaboró un mapa de empatía del cliente que permitió comprender sus necesidades y desafíos más relevantes. 
 
+ ![Mapa Empatia](media/mapa_empatia.jpg) 
+
+Una vez identificados los principales puntos de dolor de la organización, se diseñó el producto de datos en conjunto con el gerente administrativo de la compañía, definiendo el alcance esperado de dicho producto. Esta segunda reunión se realizó el 12 de septiembre de 2025. A partir de entonces, se sostuvieron múltiples encuentros de seguimiento para asegurar el avance del producto de datos y el cumplimiento de los objetivos establecidos. 
+
+ ![Notas](media/notas.jpg) 
+
+Finalmente, el 28 de noviembre de 2025 se realizó una entrega parcial de los productos de datos desarrollados en el proyecto. Durante esta entrega, se evidenció satisfacción por parte del cliente respecto al cumplimiento de los objetivos planteados. La organización manifestó conformidad tanto con el entorno de captura de información como con el entorno de visualización. No obstante, en etapa de pruebas funcionales, se identificaron algunos detalles menores relacionados con errores no controlados en el registro de datos, los cuales se espera corregir antes de la implementación definitiva de la herramienta en enero de 2026. 
 
 ## 13. Conclusiones 
-- ¿Se cumplieron los objetivos del proyecto? 
-<p align="justify">
-Si, los objetivos propuestos inicialmente en el proyecto se cumplieron de manera satisfactoria. Se desarrollaron todos los productos de datos propuestos; la ETL inicial para consolidar la información histórica de la empresa, un API transaccional para la captura estructurada de la información, un dashboard que apoya el monitoreo y la gestión de proyecto, y un prototipo de modelo analítico. Todos estos productos permiten a IMG Procesos y Tecnología mejorar la trazabilidad, y el seguimiento de los proyectos, centralizar los datos, y facilitar la toma de decisiones basadas en datos 
+¿Se cumplieron los objetivos del proyecto? 
 
-- ¿Cuáles fueron las mayores dificultades que se obtuvieron durante su desarrollo? 
-<p align="justify">
-El principal obstáculo enfrentado en el desarrollo del presente proyecto está relacionado con la cantidad de datos encontrados en la empresa, después de haber comenzado el desarrollo del proyecto, se encontró que el volumen de datos en IMG era insuficiente para la construcción de un Modelo de Analítica. Esta dificultad obligó a reformular el alcance técnico del proyecto, a incorporar un dataset externo y a tener esfuerzos adicionales con el entendimiento y procesamiento de los datos.  
-<p align="justify">
-A pesar de esto, el proyecto logró avanzar de manera consistente, la inclusión de Grizzly permitió mantener el componente académico del curso y realizar procesos de analítica de datos, mientras que los demás entregables aportan valor a la estrategia de datos de la empresa. 
+Si, los objetivos propuestos inicialmente en el proyecto se cumplieron de manera satisfactoria. Se desarrollaron todos los productos de datos propuestos: la ETL inicial para consolidar la información histórica de la empresa, un API transaccional para la captura estructurada de la información, un dashboard que apoya el monitoreo y la gestión de proyecto, y un prototipo de modelo analítico. Todos estos productos permiten a IMG Procesos y Tecnología mejorar la trazabilidad, y el seguimiento de los proyectos, centralizar los datos, y facilitar la toma de decisiones basadas en datos 
+
+- ¿Cuáles fueron las mayores dificultades que se obtuvieron durante su desarrollo 
+
+El principal obstáculo está relacionado con la cantidad de datos encontrados en la empresa, después de haber comenzado el desarrollo del proyecto se encontró que el volumen de datos en IMG era insuficiente para la construcción de un Modelo de Analítica. Esta dificultad obligo a reformular el alcance técnico del proyecto, a incorporar un dataset externo y a tener esfuerzos adicionales con el entendimiento y procesamiento de los datos. A pesar de esto, el proyecto logro avanzar de manera apropiada, la inclusión de Grizzly permitió mantener el componente académico del curso y realizar procesos de analítica de datos, mientras que los demás entregables aportan valor a la estrategia de datos de la empresa. 
 
 - ¿Qué estimación se puede dar respecto a cómo se impactarían las métricas de negocio (KPIs) una vez el producto de datos sea utilizado por usuarios reales? 
 
-- ¿Qué condiciones considera que deberían tener los datos para obtener mejores resultados? Más datos, nuevas características, menor sesgo, etc. 
-<p align="justify">
-La principal mejora para IMG sería un mayor volumen de datos disponibles de forma estructurada y centralizada, se espera que mediante la nueva API sea más sencillo para las personas de la empresa hacer sus registros diarios y de esta manera aumentar el histórico de datos, y así, ver tendencias y poder realizar analítica sobre los datos.  
-<p align="justify">
-Sería beneficioso también enriquecer las entidades actuales (Proyectos, Actividades, Tareas, Empleados) con atributos adicionales que aporten contexto, por ejemplo, categorías de trabajo, nivel de complejidad, nivel de prioridad, tipo de clientes, mantenimiento o nuevo desarrollo. Este informacion adicional ampliaría las posibilidades analíticas de los modelos y permitiría crear nuevas métricas en el dashboard. 
-<p align="justify">
-En cuanto al dataset Grizzly, aunque su anonimización es comprensible, la ausencia de variables descriptivas (como categorías o nombres más interpretables) limitó parcialmente la comprensión del contexto. No obstante, su estructura permitió desarrollar escenarios analíticos útiles para el alcance académico del proyecto. 
+Tras la adopción de los productos de datos desarrollados, se espera que los KPIs del negocio vean un impacto en la optimización de costos operacionales, disminución de horas de desarrollo no estimadas, redistribución de personal en los equipos de trabajo, y trazabilidad de costos operacionales en los proyectos. De igual manera, se plantean impactos positivos en la centralización de la información y el registro de costos y presupuestos asociados a cada cliente. De manera estratégica, se preveen más casos de usos futuros producto de la centralización de la información que se desarrolla en estos productos de datos. 
 
- 
+- ¿Qué condiciones considera que deberían tener los datos para obtener mejores resultados? Más datos, nuevas características, menor sesgo, etc. 
+
+La principal mejora para IMG sería un mayor volumen de datos disponibles de forma estructurada y centralizada, se espera que mediante la nueva API sea más sencillo para las personas de la empresa hacer sus registros diarios y de esta manera aumentar el histórico de datos, y así, ver tendencias y poder realizar analítica sobre los datos. Sería beneficioso también enriquecer las entidades actuales (Proyectos, Actividades, Tareas, Empleados) con atributos adicionales que aporten contexto, por ejemplo, categorías de trabajo, nivel de complejidad, nivel de prioridad, tipo de clientes, mantenimiento o nuevo desarrollo. Esta información adicional ampliaría las posibilidades analíticas de los modelos y permitiría crear nuevas métricas en el dashboard. En cuanto al dataset Grizzly, aunque su anonimización es comprensible, la ausencia de variables descriptivas (como categorías o nombres más interpretables) limitó parcialmente la comprensión del contexto. No obstante, su estructura permitió desarrollar escenarios analíticos útiles para el alcance académico del proyecto. 
 
 - ¿El mejor modelo obtenido es suficiente para dar solución al problema u oportunidad de negocio abordado? 
 
-
+Si bien el modelo no sustituye las necesidades de centralización y análisis operativo que ya cubren la aplicación web y el dashboard corporativo, sí aporta un valor adicional significativo frente a la problemática del negocio. La falta de control entre costos planificados y reales, la ausencia de datos consolidados para evaluar productividad y la imposibilidad de anticipar desviaciones afectan directamente la gestión de proyectos. En este contexto, el modelo desarrollado, que es capaz de predecir las horas reales de un proyecto a partir de información como horas planeadas, número de tareas y frecuencia de seguimiento, no resuelve por completo todas las brechas operativas, pero sí constituye un activo de datos útil y complementario. Su capacidad predictiva permite a los project managers estimar con mayor precisión el esfuerzo real requerido, anticipar desviaciones de costo y planificar proyectos con una base más informada, contribuyendo de forma tangible a la toma de decisiones y a la eficiencia organizacional.   
