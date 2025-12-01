@@ -41,6 +41,10 @@ El presente repositorio contiene todos los archivos necesarios para el desarroll
  - Presentación Entrega: presentación de PowerPoint que es material de la sustentación. El video de la presentación puede ser encontrado en el siguiente enlace: [Video Sustentacion](https://youtu.be/EOA7mniwaAU)
 
  - Resumen Ejecutivo: archivo pdf que contiene el resumen ejecutivo de la entrega del proyecto.
+
+ - Entrega Final Ciencia de Datos: presentación de PowerPoint que es material de la sustentación final. El video de la presentación puede ser encontrado en el siguiente enlace: [Video Sustentacion Final](https://youtu.be/fvpbdCCRMPQ)
+   
+ - EntregaFinalCDA : archivo pdf que contiene el resumen ejecutivo de la entrega Final del proyecto.
  
 ---
 
