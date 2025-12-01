@@ -32,7 +32,7 @@ El presente repositorio contiene todos los archivos necesarios para el desarroll
  
  - ETL_V0.1.ipynb: notebook complementario utilizado para recolectar información de los correos de la empresa.
  
- - proyecto_final.ipynb:  notebook utilizado para recolectar la información del dataset. Es el principal objeto de análisis y donde se encuentra la solución del proyecto.
+ - proyecto_final_entrega_dos.ipynb:  notebook utilizado para recolectar la información del dataset. Es el principal objeto de análisis y donde se encuentra la solución del proyecto.
 
  - API_IMG.zip: Archivo comprimido que contiene el código relacionado con el API. Para ejecutar se debe usar archivo app.py
 
