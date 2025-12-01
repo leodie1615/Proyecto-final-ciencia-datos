@@ -6,7 +6,7 @@
 
 
 # Instalaciones
-Para ejecutar el notebook proyecto_final.ipynb se debe ejecutar en consola cmd el comando ".\setup.bat", con el fin de instalar ambiente virtual y librerías necesarias para la ejecución del notebook. Finalmente, se debe seleccionar el kernel **venv** para ejecutar las celdas de código.
+Para ejecutar el notebook proyecto_final_segunda_entrega.ipynb se debe ejecutar en consola cmd el comando ".\setup.bat", con el fin de instalar ambiente virtual y librerías necesarias para la ejecución del notebook. Finalmente, se debe seleccionar el kernel **venv** para ejecutar las celdas de código.
 
 **Instalación de los datos:** El dataset de Gryzzly requerido para el análisis puede ser ubicado en el siguiente enlace: [Repositorio de Datos](https://figshare.com/articles/dataset/Screenshot_2024-12-23_at_11_02_48_png/28114247/2). Es necesario descargar los archivos .csv que se encuentran en el dataset y guardarlos en la carpeta /data una vez se haya clonado el presente repositorio.
 
